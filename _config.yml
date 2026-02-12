@@ -4,7 +4,6 @@ url: https://yourusername.github.io
 baseurl: ""
 
 markdown: kramdown
-theme: jekyll-theme-minimal
 
 collections:
   posts:

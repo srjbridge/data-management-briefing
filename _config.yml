@@ -1,0 +1,16 @@
+title: Data Management Briefing
+description: Weekly briefing on data management best practices and emerging trends
+url: https://yourusername.github.io
+baseurl: ""
+
+markdown: kramdown
+theme: jekyll-theme-minimal
+
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

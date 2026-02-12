@@ -1,7 +1,7 @@
 title: Data Management Briefing
 description: Weekly briefing on data management best practices and emerging trends
 url: https://yourusername.github.io
-baseurl: ""
+baseurl: /data-management-briefing"
 
 markdown: kramdown
 

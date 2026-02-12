@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="{{ site.baseurl }}/">Data Management Briefing</a></h1>
+    <p class="tagline">Weekly briefing on data management best practices and emerging trends</p>
+    <nav>
+      <a href="{{ site.baseurl }}/">Home</a> |
+      <a href="{{ site.baseurl }}/archive">Archive</a> |
+      <a href="{{ site.baseurl }}/about">About</a> |
+      <a href="{{ site.baseurl }}/subscribe">Subscribe</a>
+    </nav>
+  </header>
+
+  <main>
+    {{ content }}
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Data Management Briefing | <a href="{{ site.baseurl }}/subscribe">Subscribe to updates</a></p>
+  </footer>
+</body>
+</html>

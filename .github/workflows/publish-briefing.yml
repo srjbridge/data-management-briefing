@@ -1,0 +1,49 @@
+name: Publish Weekly Briefing
+
+on:
+  workflow_dispatch:
+    inputs:
+      briefing_title:
+        description: 'Briefing title (auto-generated from date if not provided)'
+        required: false
+      briefing_content:
+        description: 'Briefing content in markdown format'
+        required: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      
+      - name: Create briefing post
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          TITLE="${{ inputs.briefing_title }}"
+          if [ -z "$TITLE" ]; then
+            TITLE="Weekly Data Management Briefing - $DATE"
+          fi
+          
+          # Create post file
+          FILENAME="_posts/${DATE}-weekly-briefing.md"
+          
+          cat > "$FILENAME" << 'EOF'
+---
+layout: default
+title: "${{ inputs.briefing_title }}"
+date: "$(date)"
+---
+
+${{ inputs.briefing_content }}
+EOF
+      
+      - name: Commit and push
+        run: |
+          git add _posts/
+          git commit -m "Publish weekly briefing - $(date +%Y-%m-%d)" || echo "No changes to commit"
+          git push
